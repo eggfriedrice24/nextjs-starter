@@ -15,6 +15,7 @@
     "check": "pnpm lint && pnpm typecheck && pnpm format:check"
   },
   "dependencies": {
+    "jiti": "^2.4.2",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
