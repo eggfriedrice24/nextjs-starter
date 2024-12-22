@@ -1,7 +1,13 @@
+import { ModeToggle } from '@/components/theme-toggle';
+
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      hello, world
+    <div className="flex h-screen w-screen flex-col font-[family-name:var(--font-geist-sans)]">
+      <header className="flex justify-end p-4">
+        <ModeToggle />
+      </header>
+
+      <div className="grid flex-1 place-items-center">hello, world</div>
     </div>
   );
 }
