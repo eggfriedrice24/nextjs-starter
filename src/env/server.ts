@@ -1,7 +1,7 @@
 import { createEnv } from '@t3-oss/env-nextjs';
 import { config } from 'dotenv';
 import { expand } from 'dotenv-expand';
-import { z, ZodError } from 'zod';
+import { z, type ZodError } from 'zod';
 
 expand(config());
 
