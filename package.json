@@ -2,6 +2,8 @@
   "name": "nextjs-starter",
   "version": "0.1.0",
   "private": true,
+  "author": "eggfriedrice",
+  "description": "Next.js starter kit with all the bells and whistles",
   "scripts": {
     "clean": "rimraf --glob **/node_modules **/dist **/.next pnpm-lock.yaml **/.tsbuildinfo",
     "build": "next build",
