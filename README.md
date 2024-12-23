@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Starter Kit
+
+A modern Next.js starter kit equipped with all the essential tools and features to kickstart your project.
+
+## Features
+
+- **Next.js** for server-side rendering and static site generation
+- **TypeScript** for type safety and better development experience
+- **TailwindCSS** for utility-first styling
+- **Shadcn UI** components for accessible and customizable UI elements
+- **Zod** for schema validation
+- **Drizzle ORM** for database management
+- **Prettier** and **ESLint** for code formatting and linting
+- **Postgres** as the database (via `postgres` library)
+- Pre-configured environment management using `dotenv`
+- CLI tools for database migrations, seeding, and management
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Make sure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Node.js](https://nodejs.org/) (version 16 or higher recommended)
+- [pnpm](https://pnpm.io/) (preferred package manager)
+- [PostgreSQL](https://www.postgresql.org/) for the database
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone git@github.com:eggfriedrice24/nextjs-starter.git
+   cd nextjs-starter
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add the required environment variables. Use `.env.example` as a reference.
 
-## Deploy on Vercel
+4. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   pnpm dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   The app will be available at [http://localhost:2424](http://localhost:2424).
+
+## Scripts
+
+The following scripts are available:
+
+| Script                   | Description                                    |
+| ------------------------ | ---------------------------------------------- |
+| `pnpm dev`               | Start the development server                   |
+| `pnpm build`             | Build the project for production               |
+| `pnpm start`             | Start the production server                    |
+| `pnpm lint`              | Run ESLint to find linting issues              |
+| `pnpm lint:fix`          | Fix linting issues automatically               |
+| `pnpm typecheck`         | Run TypeScript type checks                     |
+| `pnpm format:write`      | Format code using Prettier                     |
+| `pnpm format:check`      | Check code formatting using Prettier           |
+| `pnpm check`             | Run linting, type checks, and formatting check |
+| `pnpm clean`             | Remove node_modules, dist, and cache files     |
+| `pnpm db:generate`       | Generate Drizzle ORM schema                    |
+| `pnpm db:introspect`     | Introspect the database schema                 |
+| `pnpm db:push`           | Push schema changes to the database            |
+| `pnpm db:migrate`        | Run database migrations                        |
+| `pnpm db:drop-migration` | Drop the last database migration               |
+| `pnpm db:seed`           | Seed the database                              |
+| `pnpm db:studio`         | Open Drizzle ORM Studio                        |
+
+## Database Management
+
+This starter kit uses Drizzle ORM for database management. Use the following commands to manage your database:
+
+- **Generate Schema:**
+
+  ```bash
+  pnpm db:generate
+  ```
+
+- **Run Migrations:**
+
+  ```bash
+  pnpm db:migrate
+  ```
+
+- **Seed Data:**
+  ```bash
+  pnpm db:seed
+  ```
+
+## Contribution
+
+Contributions are welcome! Feel free to open issues or submit pull requests for any improvements or new features.
+
+---
+
+Happy coding! 🚀
