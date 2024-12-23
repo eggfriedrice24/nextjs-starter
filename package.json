@@ -19,7 +19,7 @@
     "db:push": "dotenv drizzle-kit push",
     "db:migrate": "cross-env DB_MIGRATING=true dotenv tsx src/server/db/migrate.ts",
     "db:drop-migration": "drizzle-kit drop",
-    "db:seed": "dotenv tsx src/db/seed.ts",
+    "db:seed": "dotenv tsx src/server/db/seed.ts",
     "db:studio": "dotenv drizzle-kit studio"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "drizzle-orm": "^0.38.2",
     "drizzle-zod": "^0.6.0",
     "jiti": "^2.4.2",
+    "nanoid": "^5.0.9",
     "next": "15.1.2",
     "next-themes": "^0.4.4",
     "postgres": "^3.4.5",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@faker-js/faker": "^9.3.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/node": "^20",
     "@types/react": "^19",
