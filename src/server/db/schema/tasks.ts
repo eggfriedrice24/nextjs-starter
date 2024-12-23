@@ -1,13 +1,15 @@
-import crypto from 'crypto';
-
 import { sql } from 'drizzle-orm';
-import { boolean, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  pgTable,
+  timestamp,
+  uuid,
+  varchar,
+} from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 
 export const tasks = pgTable('tasks', {
-  id: varchar('id', { length: 255 })
-    .$defaultFn(() => crypto.randomUUID())
-    .primaryKey(),
+  id: uuid('id').primaryKey().defaultRandom(),
   code: varchar('code', { length: 128 }).notNull().unique(),
   title: varchar('title', { length: 128 }),
   status: varchar('status', {
@@ -18,7 +20,7 @@ export const tasks = pgTable('tasks', {
     .default('todo'),
   label: varchar('label', {
     length: 30,
-    enum: ['bug', 'feature', 'enhancement', 'documentation'],
+    enum: ['bug', 'feature', 'enhancement', 'documentation', 'other'],
   })
     .notNull()
     .default('bug'),
