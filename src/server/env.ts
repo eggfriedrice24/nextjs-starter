@@ -8,6 +8,10 @@ expand(config());
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'production']),
+    NEXTAUTH_URL: z.string().url(),
+    NEXTAUTH_SECRET: z.string(),
+    GITHUB_CLIENT_ID: z.string(),
+    GITHUB_CLIENT_SECRET: z.string(),
     DB_HOST: z.string(),
     DB_USER: z.string(),
     DB_PASSWORD: z.string(),
