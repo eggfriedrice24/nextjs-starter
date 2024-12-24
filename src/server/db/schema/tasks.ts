@@ -1,4 +1,4 @@
-import { sql } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import {
   boolean,
   pgTable,
@@ -41,6 +41,13 @@ export const tasks = pgTable('task', {
     .default(sql`current_timestamp`)
     .$onUpdate(() => new Date()),
 });
+
+export const tasksRelations = relations(tasks, ({ one }) => ({
+  user: one(users, {
+    fields: [tasks.userId],
+    references: [users.id],
+  }),
+}));
 
 // Select
 export type Task = typeof tasks.$inferSelect;

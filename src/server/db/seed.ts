@@ -16,6 +16,7 @@ export function generateRandomTask(): Omit<Task, 'id'> {
     archived: faker.datatype.boolean({ probability: 0.2 }),
     createdAt: new Date(),
     updatedAt: new Date(),
+    userId: '6c155b12-93ec-4953-b295-bcd0c0246889',
   };
 }
 

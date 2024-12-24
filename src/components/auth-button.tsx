@@ -2,7 +2,6 @@
 
 import {
   IconBadge,
-  IconBell,
   IconBrandGithub,
   IconLoader3,
   IconLogout,
@@ -80,10 +79,6 @@ export default function AuthButton({ minimal = false }: { minimal?: boolean }) {
               <IconBadge />
               Account
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <IconBell />
-              Notifications
-            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={signOutClick}>
@@ -99,7 +94,7 @@ export default function AuthButton({ minimal = false }: { minimal?: boolean }) {
     <Button
       onClick={() =>
         signIn('github', {
-          callbackUrl: '/',
+          callbackUrl: '/tasks',
         })
       }
       variant="outline"
