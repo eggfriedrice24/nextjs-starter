@@ -4,7 +4,6 @@ import {
   IconBadge,
   IconBell,
   IconBrandGithub,
-  IconChevronUp,
   IconLoader3,
   IconLogout,
 } from '@tabler/icons-react';
@@ -22,11 +21,16 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 
-export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
+export default function AuthButton({ minimal = false }: { minimal?: boolean }) {
   const { data, status } = useSession();
 
   if (status === 'loading') {
-    return <IconLoader3 aria-label="Loading authentication status..." />;
+    return (
+      <IconLoader3
+        className="animate-spin"
+        aria-label="Loading authentication status..."
+      />
+    );
   }
 
   if (status === 'authenticated') {
@@ -40,36 +44,28 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
       return (
         <Button onClick={signOutClick} variant="ghost">
           <IconBrandGithub />
-          Sign Out
+          Log Out
         </Button>
       );
     }
 
     return (
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <div className="flex cursor-pointer items-center gap-2">
-            <Avatar className="size-8 rounded-lg">
-              <AvatarImage src={user.image ?? ''} alt={user.name ?? 'User'} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-            </Avatar>
-            <div className="grid text-left text-sm leading-tight">
-              <span className="truncate font-semibold">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
-            </div>
-            <IconChevronUp className="ml-auto size-4" />
-          </div>
+        <DropdownMenuTrigger>
+          <Avatar className="size-8 rounded-lg">
+            <AvatarImage src={user.image ?? ''} alt={user.name ?? ''} />
+            <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+          </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          className="min-w-56 rounded-lg"
-          side="right"
+          className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
           align="end"
           sideOffset={4}
         >
           <DropdownMenuLabel className="p-0 font-normal">
             <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
               <Avatar className="size-8 rounded-lg">
-                <AvatarImage src={user.image ?? ''} alt={user.name ?? 'User'} />
+                <AvatarImage src={user.image ?? ''} alt={user.name ?? ''} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
@@ -81,17 +77,17 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <IconBadge className="mr-2" />
+              <IconBadge />
               Account
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <IconBell className="mr-2" />
+              <IconBell />
               Notifications
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={signOutClick}>
-            <IconLogout className="mr-2" />
+            <IconLogout />
             Log out
           </DropdownMenuItem>
         </DropdownMenuContent>

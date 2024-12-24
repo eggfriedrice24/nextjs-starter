@@ -11,11 +11,11 @@ export default async function Home() {
 
   return (
     <div className="flex h-screen w-screen flex-col font-[family-name:var(--font-geist-sans)]">
-      <header className="flex justify-end p-4">
+      <header className="flex items-center justify-end gap-2 p-4">
         <ModeToggle />
-      </header>
 
-      <AuthButton />
+        <AuthButton />
+      </header>
     </div>
   );
 }
