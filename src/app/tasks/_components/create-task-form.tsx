@@ -38,7 +38,7 @@ import { Switch } from '@/components/ui/switch';
 import { tasks } from '@/server/db/schema';
 import { insertTasksSchema } from '@/server/db/schema/tasks';
 
-import { createTask } from '../actions';
+import { createTask } from '../_lib/actions';
 
 type CreateTaskSchemaType = z.infer<typeof insertTasksSchema>;
 
