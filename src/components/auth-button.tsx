@@ -103,7 +103,7 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
     <Button
       onClick={() =>
         signIn('github', {
-          callbackUrl: '/profile',
+          callbackUrl: '/',
         })
       }
       variant="ghost"

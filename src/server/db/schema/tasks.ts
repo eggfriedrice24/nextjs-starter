@@ -8,8 +8,13 @@ import {
 } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 
-export const tasks = pgTable('tasks', {
+import { users } from './users';
+
+export const tasks = pgTable('task', {
   id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
   code: varchar('code', { length: 128 }).notNull().unique(),
   title: varchar('title', { length: 128 }),
   status: varchar('status', {
