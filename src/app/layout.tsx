@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import AuthButton from '@/components/auth-button';
 import { Providers } from '@/components/providers';
+import { ModeToggle } from '@/components/theme-toggle';
 
 import '@/styles/globals.css';
 
@@ -32,7 +34,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex flex-col gap-2">
+            <header className="flex items-center justify-end gap-2 p-4">
+              <ModeToggle />
+
+              <AuthButton />
+            </header>
+
+            <main className="flex flex-1 items-center justify-center">
+              {children}
+            </main>
+          </div>
+        </Providers>
       </body>
     </html>
   );

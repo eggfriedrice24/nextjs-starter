@@ -42,7 +42,7 @@ export default function AuthButton({ minimal = false }: { minimal?: boolean }) {
 
     if (minimal) {
       return (
-        <Button onClick={signOutClick} variant="ghost">
+        <Button onClick={signOutClick} variant="outline">
           <IconBrandGithub />
           Log Out
         </Button>
@@ -102,7 +102,7 @@ export default function AuthButton({ minimal = false }: { minimal?: boolean }) {
           callbackUrl: '/',
         })
       }
-      variant="ghost"
+      variant="outline"
     >
       <IconBrandGithub />
       Sign In
