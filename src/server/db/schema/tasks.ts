@@ -55,10 +55,14 @@ export const selectTasksSchema = createSelectSchema(tasks);
 
 // Insert
 export type NewTask = typeof tasks.$inferInsert;
-export const insertTasksSchema = createInsertSchema(tasks).omit({
+export const insertTasksSchema = createInsertSchema(tasks, {
+  title: (title) => title.nonempty().nullable(),
+}).omit({
   id: true,
+  userId: true,
   createdAt: true,
   updatedAt: true,
+  code: true,
 });
 
 // Update

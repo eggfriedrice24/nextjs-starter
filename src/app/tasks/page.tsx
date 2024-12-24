@@ -12,6 +12,8 @@ import {
 import requireAuth from '@/lib/require-auth';
 import db from '@/server/db';
 
+import { CreateTaskForm } from './_components/create-task-form';
+
 export default async function TasksPage() {
   await requireAuth();
 
@@ -28,9 +30,13 @@ export default async function TasksPage() {
     <div className="container py-6">
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Tasks</h1>
-        <Badge variant="outline" className="text-sm">
-          {tasks.length} Total
-        </Badge>
+        <div className="flex items-center gap-2">
+          <Badge variant="outline" className="h-6 text-sm">
+            {tasks.length} Total
+          </Badge>
+
+          <CreateTaskForm />
+        </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -46,8 +52,9 @@ export default async function TasksPage() {
                         ? 'secondary'
                         : 'outline'
                   }
+                  className="capitalize"
                 >
-                  {task.status}
+                  {task.status.split('-').join(' ')}
                 </Badge>
                 <time className="flex items-center gap-1 text-sm text-muted-foreground">
                   <IconCalendar className="size-3" />
